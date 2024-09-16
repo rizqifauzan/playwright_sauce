@@ -52,6 +52,13 @@ To run tests in a specific browser, you can specify the browser type. For exampl
     ```
     npx playwright test --project=chromium
     ```
+## Test Report ##
+To open the report from last testrun, use command: 
+    ```
+    npx playwright show-report
+    ```
+  
+
 
 ## Test Example
 Here is an example test case for adding items to the cart:
