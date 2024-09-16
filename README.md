@@ -5,7 +5,7 @@
 This project is designed to automate web testing using Playwright, a powerful library for end-to-end testing of modern web applications. It allows you to write tests that simulate user interactions and verify that the application behaves as expected.
 
 ## Project Structure
-
+```
 ├── tests/
 │   └── cart.test.js                      # Test spec for adding items to the cart
 ├── pages/
@@ -17,7 +17,7 @@ This project is designed to automate web testing using Playwright, a powerful li
 ├── playwright.config.js                 # Playwright configuration file
 ├── package.json                         # Project dependencies
 └── README.md                            # Project documentation
-
+```
 
 ## Installation
 
