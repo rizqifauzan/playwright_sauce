@@ -44,14 +44,14 @@ Credentials are stored in `data/loginData.js` to avoid hardcoding sensitive info
 ## Running Tests
 
 To execute the test cases, use the following command:
-    ```bash
+    ```
     npx playwright test
     ```
 
 To run tests in a specific browser, you can specify the browser type. For example, to run tests in Chromium:
-   ```bash
+    ```
     npx playwright test --project=chromium
-     ```
+    ```
 
 ## Test Example
 Here is an example test case for adding items to the cart:
