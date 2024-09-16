@@ -29,30 +29,33 @@ This project is designed to automate web testing using Playwright, a powerful li
     ```
 
 2. **Install Dependencies**
-    ``bash
+    ```bash
     npm install
     ```
 
-**Configuration**
+## Configuration
+
 The project uses Playwright for automation and Jest for running the tests. Configuration details can be adjusted in the `playwright.config.js` file.
 
-**Credentials**
+## Credentials
+
 Credentials are stored in `data/loginData.js` to avoid hardcoding sensitive information in test files. Update this file with the appropriate credentials if necessary.
 
-**Running Tests**
+## Running Tests
+
 To execute the test cases, use the following command:
-    ``bash
+    ```bash
     npx playwright test
     ```
 
 To run tests in a specific browser, you can specify the browser type. For example, to run tests in Chromium:
-    ``bash
+   ```bash
     npx playwright test --project=chromium
-    ```
+     ```
 
-**Test Example**
+## Test Example
 Here is an example test case for adding items to the cart:
-    ``bash
+    ```bash
     const loginData = require('./data/loginData');
 
     test('should add 2 items to the cart', async ({ page }) => {
