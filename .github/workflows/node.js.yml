@@ -31,3 +31,10 @@ jobs:
 
       - name: Run Playwright tests
         run: npx playwright test # Pastikan untuk menjalankan dalam mode headless
+
+        # Simpan HTML report sebagai artefak
+      - name: Upload Playwright HTML Report
+        uses: actions/upload-artifact@v3
+        with:
+          name: playwright-report
+          path: playwright-report
