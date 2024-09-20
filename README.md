@@ -31,6 +31,7 @@ This project is designed to automate web testing using Playwright, a powerful li
 2. **Install Dependencies**
     ```bash
     npm install
+    npx playwright install
     ```
 
 ## Configuration
