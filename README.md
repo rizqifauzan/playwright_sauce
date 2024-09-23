@@ -94,3 +94,7 @@ Here is an example test case for adding items to the cart:
 ### Contact
 
 For any issues or questions, feel free to reach out via email at [sipena.id@gmail.com](mailto:sipena.id@gmail.com).
+
+TODO : Memperbaharui referensi screenshot
+npx playwright test tests/login.spec.js
+ --update-snapshots

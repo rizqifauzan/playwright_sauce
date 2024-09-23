@@ -2,6 +2,7 @@ const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/loginPage');
 const InventoryPage = require('../pages/inventoryPage');
 const loginData = require('../data/loginData');
+const { waitForImagesToLoad } = require('../utils/waitUtils');
 
 test.describe('Sorting Tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -18,6 +19,10 @@ test.describe('Sorting Tests', () => {
     const sortedNames = [...productNames].sort().reverse();
 
     expect(productNames).toEqual(sortedNames);
+    await waitForImagesToLoad(page);
+
+    const screenshot = await page.screenshot();
+    expect(screenshot).toMatchSnapshot('inventory-page-za.png', { maxDiffPixels: 1000 });
   });
 
   test('Verify price order (high-low)', async ({ page }) => {
@@ -26,7 +31,10 @@ test.describe('Sorting Tests', () => {
     await inventoryPage.sortItems('hilo');
     const productPrices = await inventoryPage.getItemPrices();
     const sortedPrices = [...productPrices].sort((a, b) => b - a);
-
     expect(productPrices).toEqual(sortedPrices);
+    await waitForImagesToLoad(page);
+
+    const screenshot = await page.screenshot();
+    expect(screenshot).toMatchSnapshot('inventory-page-hl.png', { maxDiffPixels: 1000 });
   });
 });

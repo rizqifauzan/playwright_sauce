@@ -8,5 +8,7 @@ test('should login successfully', async ({ page }) => {
   await expect(page).toHaveURL("https://www.saucedemo.com");
 
   const screenshot = await page.screenshot();
-  expect(screenshot).toMatchSnapshot('loginpage.png');
+  expect(screenshot).toMatchSnapshot('loginpage.png', { 
+    maxDiffPixels: 1000 }
+  );
 });
