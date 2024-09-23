@@ -12,6 +12,7 @@ const { defineConfig, devices } = require('@playwright/test');
  */
 module.exports = defineConfig({
   testDir: './tests',
+  snapshotPathTemplate: 'references/{arg}{ext}',
   /* Run tests in files in parallel */
   fullyParallel: true,
   /* Fail the build on CI if you accidentally left test.only in the source code. */
@@ -29,9 +30,10 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    headless: true, // Set to true if you don't need to see the browser window
+    headless: false, // Set to true if you don't need to see the browser window
     video: 'retain-on-failure', // Keep videos for failed tests
     screenshot: 'only-on-failure', // Take screenshots on failure
+    viewport: { width: 1280, height: 720 },
   },
 
   /* Configure projects for major browsers */

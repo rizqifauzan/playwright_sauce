@@ -2,13 +2,19 @@
   "name": "playwright_sauce",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "lint": "eslint ."
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
+    "@eslint/js": "^9.11.0",
     "@playwright/test": "^1.47.1",
-    "@types/node": "^22.5.5"
+    "@types/node": "^22.5.5",
+    "eslint": "^9.11.0",
+    "eslint-plugin-react": "^7.36.1",
+    "globals": "^15.9.0"
   }
 }

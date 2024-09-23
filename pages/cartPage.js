@@ -13,6 +13,10 @@ class CartPage {
     async checkout() {
       await this.page.click(this.checkoutButton);
     }
+
+    async getNumberOfCartItems() {
+      return await this.page.$$eval(this.cartItems, items => items.length);
+    }
   }
   
   module.exports = CartPage;

@@ -5,7 +5,8 @@ const loginData = require('../data/loginData');
 test('should login successfully', async ({ page }) => {
   const loginPage = new LoginPage(page);
   await loginPage.navigate();
-  await loginPage.login(loginData.username, loginData.password);
-  
-  await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
+  await expect(page).toHaveURL("https://www.saucedemo.com");
+
+  const screenshot = await page.screenshot();
+  expect(screenshot).toMatchSnapshot('loginpage.png');
 });

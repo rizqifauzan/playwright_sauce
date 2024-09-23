@@ -21,6 +21,10 @@ class CheckoutPage {
     async finishCheckout() {
       await this.page.click(this.finishButton);
     }
+    
+    async getCheckoutMessage() {
+      return await this.page.textContent('.complete-header');
+    }
   }
   
   module.exports = CheckoutPage;
