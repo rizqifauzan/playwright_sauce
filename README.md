@@ -7,16 +7,21 @@ This project is designed to automate web testing using Playwright, a powerful li
 ## Project Structure
 ```
 ├── tests/
-│   └── cart.test.js                      # Test spec for adding items to the cart
+│   └── cart.test.js                     # Test spec for adding items to the cart
 ├── pages/
 │   ├── LoginPage.js                     # Page object for the login page
 │   ├── InventoryPage.js                 # Page object for the inventory page
 │   └── CartPage.js                      # Page object for the cart page
 ├── data/
 │   └── loginData.js                     # Configuration file for login credentials
+├── references/                          # Forlder snapshot for screenshot reference
+│   └── inventory-page-hl.png
+│   └── inventory-page-za.png
+│   └── loginpage.png            
 ├── playwright.config.js                 # Playwright configuration file
 ├── package.json                         # Project dependencies
 └── README.md                            # Project documentation
+└── .env                                 # Environment Variable
 ```
 
 ## Installation
@@ -53,6 +58,12 @@ To run tests in a specific browser, you can specify the browser type. For exampl
     ```
     npx playwright test --project=chromium
     ```
+
+To update the snapshot reference, you can use
+    ```
+    npx playwright test --update-snapshot
+    ```
+
 ## Test Report ##
 To open the report from last testrun, use command: 
     ```
@@ -86,6 +97,18 @@ Here is an example test case for adding items to the cart:
 - A browser installed locally (Chrome and Firefox)
 - playwright dependencies installed via `npm install`
 
+
+
+## Demo
+
+For demo automation test playwright, 
+
+[Youtube](https://youtu.be/JOxk2vL2u34)
+
+
+
+
+
 ### Additional Information
 
 - **Test Framework**: Playwright
@@ -95,6 +118,3 @@ Here is an example test case for adding items to the cart:
 
 For any issues or questions, feel free to reach out via email at [sipena.id@gmail.com](mailto:sipena.id@gmail.com).
 
-TODO : Memperbaharui referensi screenshot
-npx playwright test tests/login.spec.js
- --update-snapshots
