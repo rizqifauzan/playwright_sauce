@@ -30,7 +30,7 @@ module.exports = defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'retain-on-first-failure',
-    headless: process.env.CI ? true : false,
+    headless: process.env.CI ? true : (process.env.HEADLESS === 'true' || process.env.HEADLESS === undefined),
     video: 'on', // Keep videos
     screenshot: 'on', // Take screenshots on failure
     viewport: { 
