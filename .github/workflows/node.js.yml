@@ -8,10 +8,13 @@ on:
   pull_request:
     branches:
       - main
+  workflow_dispatch:  # Allows manual triggering of the workflow
 
 jobs:
-  prepare:
+  run_playwright_test:
     runs-on: ubuntu-latest
+
+    # Install dependencies and setup Playwright
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -27,17 +30,14 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
-  test:
-    runs-on: ubuntu-latest
-    needs: prepare  # Ensure this job runs after the prepare job
-    steps:
       - name: Run Playwright tests
         run: npx playwright test
         continue-on-error: true  # This allows the workflow to continue even if tests fail
 
-      # Save HTML report as an artifact
+      # Save HTML report as artifact
       - name: Upload Playwright HTML Report
         uses: actions/upload-artifact@v4
         with:
           name: playwright-report
           path: playwright-report
+          
