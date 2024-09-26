@@ -33,7 +33,10 @@ module.exports = defineConfig({
     headless: process.env.CI ? true : false,
     video: 'on', // Keep videos
     screenshot: 'on', // Take screenshots on failure
-    viewport: { width: 1280, height: 720 },
+    viewport: { 
+      width: parseInt(process.env.VIEWPORT_WIDTH || '1280', 10), 
+      height: parseInt(process.env.VIEWPORT_HEIGHT || '720', 10) 
+    },
   },
 
   /* Configure projects for major browsers */

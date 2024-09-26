@@ -4,6 +4,8 @@ const InventoryPage = require('../pages/inventoryPage');
 const loginData = require('../data/loginData');
 const { waitForImagesToLoad } = require('../utils/waitUtils');
 const { runAccessibilityTest } = require('../utils/accessibilityUtils');
+const { runVisualComparisonTest } = require('../utils/visualUtils');
+
 
 test.describe('Sorting Tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -21,10 +23,8 @@ test.describe('Sorting Tests', () => {
 
     expect(productNames).toEqual(sortedNames);
     await waitForImagesToLoad(page);
-
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchSnapshot('inventory-page-za.png', { maxDiffPixels: 1000 });
-
+    
+    await runVisualComparisonTest(page, 'inventory-page-za.png');
     await runAccessibilityTest(page);
   });
 
@@ -37,8 +37,7 @@ test.describe('Sorting Tests', () => {
     expect(productPrices).toEqual(sortedPrices);
     await waitForImagesToLoad(page);
 
-    const screenshot = await page.screenshot();
-    expect(screenshot).toMatchSnapshot('inventory-page-hl.png', { maxDiffPixels: 1000 });
+    await runVisualComparisonTest(page, 'inventory-page-hl.png');
     await runAccessibilityTest(page);
   });
 });
