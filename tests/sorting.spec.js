@@ -3,6 +3,7 @@ const LoginPage = require('../pages/loginPage');
 const InventoryPage = require('../pages/inventoryPage');
 const loginData = require('../data/loginData');
 const { waitForImagesToLoad } = require('../utils/waitUtils');
+const { runAccessibilityTest } = require('../utils/accessibilityUtils');
 
 test.describe('Sorting Tests', () => {
   test.beforeEach(async ({ page }) => {
@@ -23,6 +24,8 @@ test.describe('Sorting Tests', () => {
 
     const screenshot = await page.screenshot();
     expect(screenshot).toMatchSnapshot('inventory-page-za.png', { maxDiffPixels: 1000 });
+
+    await runAccessibilityTest(page);
   });
 
   test('Verify price order (high-low)', async ({ page }) => {
@@ -36,5 +39,6 @@ test.describe('Sorting Tests', () => {
 
     const screenshot = await page.screenshot();
     expect(screenshot).toMatchSnapshot('inventory-page-hl.png', { maxDiffPixels: 1000 });
+    await runAccessibilityTest(page);
   });
 });

@@ -1,6 +1,7 @@
 const { test, expect } = require('@playwright/test');
 const LoginPage = require('../pages/loginPage');
 const loginData = require('../data/loginData');
+const { runAccessibilityTest } = require('../utils/accessibilityUtils');
 
 test('should login successfully', async ({ page }) => {
   const loginPage = new LoginPage(page);
@@ -11,4 +12,6 @@ test('should login successfully', async ({ page }) => {
   expect(screenshot).toMatchSnapshot('loginpage.png', { 
     maxDiffPixels: 1000 }
   );
+
+  await runAccessibilityTest(page);
 });
