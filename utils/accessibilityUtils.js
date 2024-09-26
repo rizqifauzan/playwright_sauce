@@ -1,4 +1,6 @@
 const { injectAxe, checkA11y } = require('axe-playwright');
+require('dotenv').config();
+
 
 /**
  * Perform accessibility test on the page and log the violations
@@ -6,6 +8,15 @@ const { injectAxe, checkA11y } = require('axe-playwright');
  * @param {object} [options] - Optional configuration for the a11y check
  */
 async function runAccessibilityTest(page, options = null) {
+  
+  const shouldRunA11yTests = process.env.RUN_A11Y_TESTS === 'true';
+
+  // Check if the environment variable allows running accessibility tests
+  if (!shouldRunA11yTests) {
+    console.log('Skipping accessibility tests based on environment configuration.');
+    return;
+  }
+
   // Inject the axe-core script into the page
   await injectAxe(page);
   

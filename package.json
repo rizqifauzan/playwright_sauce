@@ -19,6 +19,7 @@
     "globals": "^15.9.0"
   },
   "dependencies": {
-    "axe-playwright": "^2.0.2"
+    "axe-playwright": "^2.0.2",
+    "dotenv": "^16.4.5"
   }
 }
