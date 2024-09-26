@@ -16,11 +16,6 @@ const runVisualComparisonTest = async (page, snapshotName, tolerance) => {
     const height =  parseInt(process.env.VIEWPORT_HEIGHT || '720', 10); 
     const pixelTolerance = Math.floor(width * height); // Calculate pixel tolerance
 
-    
-    console.log('tolerancePercentage :', tolerancePercentage);
-    console.log('pixelTolerance :', pixelTolerance);
-
-
     expect(screenshot).toMatchSnapshot(snapshotName, { 
         maxDiffPixels: pixelTolerance 
     });
