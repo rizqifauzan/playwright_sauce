@@ -1,6 +1,6 @@
 name: Playwright Tests
 
-# trigrers
+# triggers
 on:
   push:
     branches:
@@ -10,10 +10,8 @@ on:
       - main
 
 jobs:
-  test:
+  prepare:
     runs-on: ubuntu-latest
-
-    # Install dependencies dan setup Playwright
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -29,11 +27,18 @@ jobs:
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
 
+  test:
+    runs-on: ubuntu-latest
+    needs: prepare  # Ensure this job runs after the prepare job
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
       - name: Run Playwright tests
         run: npx playwright test
         continue-on-error: true  # This allows the workflow to continue even if tests fail
 
-      # Simpan HTML report sebagai artefak
+      # Save HTML report as an artifact
       - name: Upload Playwright HTML Report
         uses: actions/upload-artifact@v4
         with:
