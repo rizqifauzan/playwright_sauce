@@ -11,4 +11,7 @@ test('should login successfully', async ({ page }) => {
 
   await runVisualComparisonTest(page, 'loginpage.png');
   await runAccessibilityTest(page);
+
+  await loginPage.login(loginData.username, loginData.password);
+  await expect(page).toHaveURL('https://www.saucedemo.com/inventory.html');
 });
