@@ -100,17 +100,11 @@ Here is an example test case for adding items to the cart:
 
 
 ## Demo
-
 For demo automation test playwright, 
-
 [Youtube](https://youtu.be/JOxk2vL2u34)
 
 
-
-
-
 ### Additional Information
-
 - **Test Framework**: Playwright
 - **Assertion Library**: Playwright's built-in `expect`
 
